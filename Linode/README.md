@@ -24,11 +24,11 @@ python updateSubdomain.py
 
 ### The `ipResolveFunc`
 
-There is currently only one `ipResolveFunc` implemented - `getCurrentIp` which returns the public IP of the box the script is running from via [www.whatismyip.com](http://whatismyip.com)
+There is currently only one `ipResolveFunc` implemented - `getCurrentIp` which returns the public IP of the box the script is running from (IP retrieved via via [www.whatismyip.com](http://whatismyip.com))
 ```Python
 def getCurrentIp():
   return urlopen('http://automation.whatismyip.com/n09230945.asp').read()  
 ```
 ### Added a New IP Resolving Function
-A new `ipResolveFunc` can be added by adding the new function in `lib/ipResolveFuncs.py`. It should return the IP address in [dotted decimal](http://en.wikipedia.org/wiki/Dotted_decimal) as a String. For example `127.0.0.1`
+A new `ipResolveFunc` can be added by implementing the new function in `lib/ipResolveFuncs.py`. It should return the IP address as a String in [dotted decimal](http://en.wikipedia.org/wiki/Dotted_decimal) format. For example `127.0.0.1`
 
