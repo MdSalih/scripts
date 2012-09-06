@@ -3,4 +3,4 @@ key =
 [site]
 domain =
 subdomain =
-setIpFunc = 
+ipResolveFunc = 
