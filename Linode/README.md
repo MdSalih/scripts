@@ -24,7 +24,7 @@ python updateSubdomain.py
 
 ### The `ipResolveFunc`
 
-There is currently only one `ipResolveFunc` implemented - `getCurrentIp` which returns the public IP of the box the script is running from (IP retrieved via via [www.whatismyip.com](http://whatismyip.com))
+There is currently only one `ipResolveFunc` implemented - `getCurrentIp` which returns the public IP of the box the script is running from (IP retrieved via [www.whatismyip.com](http://whatismyip.com))
 ```Python
 def getCurrentIp():
   return urlopen('http://automation.whatismyip.com/n09230945.asp').read()  
