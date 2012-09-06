@@ -71,10 +71,12 @@ if(not len(targetSubdomain)):
 else:
   log.info("Found 'A' record for subdomain [ %s ] of domain [ %s ]", subdomain, domain)
   targetSubdomain = targetSubdomain[0]
+  # If we find an 'A' record and it already has the IP address set to it
   if(targetSubdomain['TARGET'] == ipAddr):
     log.info("Target IP address [ %s ] matches expected value [ %s ] - nothing to do, exiting...", targetSubdomain['TARGET'], ipAddr)
     exit(0)
   else:
+    # If we find an 'A' record and the IP address is different to what we need it to be
     log.info("Target IP address [ %s ] does not match expected valid [ %s ] - updating...", targetSubdomain['TARGET'], ipAddr)
     newRecord = linode.domain_resource_update(DomainID = domainId, ResourceID = targetSubdomain['RESOURCEID'], Target=ipAddr, TTL_Sec=300)
     aRecord = linode.domain_resource_list(DomainID = domainId, ResourceID = newRecord['ResourceID'])
@@ -82,4 +84,3 @@ else:
     pprint(aRecord, indent=4)
  
 log.info("All done, exiting...")
-
